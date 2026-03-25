@@ -24,7 +24,7 @@ const Navbar = () => {
                 Login
                 </Link>
                 <Link href="/register" className='hover:text-blue-600'>
-                Register
+                Registers
                 </Link>
                 </>
             )}
