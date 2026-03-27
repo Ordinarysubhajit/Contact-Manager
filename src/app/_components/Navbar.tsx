@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import LogoutBuutton from './LogoutBuutton';
+import { getSession } from '../_lib/session';
 
-const Navbar = () => {
-    const Session =false; // Replace with actual session logic
+const Navbar = async () => {
+    const Session =await getSession(); // Replace with actual session logic
   return( 
   <nav className='bg-white shadow-sm'>
     <div className='container mx-auto p-4 flex justify-between items-center'>
