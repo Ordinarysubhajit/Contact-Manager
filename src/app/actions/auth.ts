@@ -9,10 +9,6 @@ export const loginAction = async (formData: FormData) => {
   try {
     const email = String(formData.get("email")).trim();
     const password = String(formData.get("password")).trim();
-    //console.log("EMAIL:", email);
-    //console.log("PASSWORD:", password);
-    //const response = await axios.get(`${API_URL}/users`);
-    //console.log("API RESPONSE:", response.data);
     const response = await axios.get(
       `${API_URL}/users?email=${email}&password=${password}`,
     );
