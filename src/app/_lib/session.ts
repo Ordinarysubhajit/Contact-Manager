@@ -20,6 +20,7 @@ export const getSession=async():Promise<UserType | null>=>{
     const user= JSON.parse(session);
     return user;
 };
+
 //delete session cookie
 export const deleteSession=async()=>{
     const cookieStore= await cookies();
