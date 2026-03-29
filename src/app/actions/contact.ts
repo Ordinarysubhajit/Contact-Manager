@@ -1,6 +1,6 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { CreateContact, deleteContact } from "../api/contact";
+import { CreateContact, deleteContact, UpdateContact } from "../api/contact";
 import { getSession } from "../_lib/session";
 import { ContactType } from "../_types/contact";
 
@@ -27,6 +27,23 @@ export const CreateContactAction = async (prevState: any, formData: FormData) =>
 };
 
 export const UpdateContactAction = async (prevState: any, formData: FormData) => {
+    const id = formData.get("id") as string ;
+    const user=await getSession();
+
+    const updatedContact:ContactType={
+        name: formData.get ("name") as string,
+        email: formData.get ("email") as string,
+        userId: Number(user?.id)
+    };
+
+    try {
+        await UpdateContact(id, updatedContact);
+        revalidatePath("/contact");
+        return { success: true };
+    } catch (error) {
+        console.log("Error updating contact:", error);
+        return { error: "Failed to update contact" };   
+    }
 };
 
 export const deleteContactAction = async (prevState: any, formData: FormData) => {

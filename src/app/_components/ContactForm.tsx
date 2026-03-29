@@ -21,10 +21,12 @@ const ContactForm = ({ action, contact }: ContactFormProps) => {
     }, [state, router]);
 
     return <form action={formAction} className='space-x-4'>
+        <input type="hidden" name='id' value={contact?.id} />
       <div>
           <label htmlFor='name' className='block text-sm font-medium text-gray-700'>Name</label>
               <input type="text"
               name="name"
+              defaultValue={contact?.name || ""}
               placeholder='Enter your name'
               required
               className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 sm:text-sm p-2' 
@@ -34,6 +36,7 @@ const ContactForm = ({ action, contact }: ContactFormProps) => {
           <label htmlFor='email' className='block text-sm font-medium text-gray-700'>Email</label>
               <input type="email"
               name="email"
+              defaultValue={contact?.email || ""}
               placeholder='Enter your email'
               required
               className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 sm:text-sm p-2' 
