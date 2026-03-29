@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getSession } from "../_lib/session";
 import { getContacts } from "../api/contact";
+import ContactList from "../_components/ContactList";
 
 const Contactpage = async () => {
   const user = await getSession();
@@ -31,7 +32,16 @@ const Contactpage = async () => {
       </div>
     );
   }
-  return <div>Contact page</div>;
+  return <div>
+    <div className="flex justify-between items-center mb-6">
+      <h1>Contacts</h1>
+      <a href="/contact/new" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Add Contact
+      </a>
+    </div>
+    <ContactList contacts={contacts} />
+
+    </div>;
 };
 
 export default Contactpage;
