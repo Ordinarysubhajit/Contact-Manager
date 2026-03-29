@@ -1,12 +1,6 @@
 {
   "contacts": [
     {
-      "id": "1",
-      "name": "john Doe",
-      "email": "john@test.com",
-      "userId": 1
-    },
-    {
       "id": "2",
       "name": "Alice",
       "email": "alice@test.com",
@@ -26,5 +20,6 @@
       "email": "user2@gmail.com",
       "password": 123456
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
